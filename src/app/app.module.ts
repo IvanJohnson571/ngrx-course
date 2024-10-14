@@ -35,13 +35,12 @@ const routes: Routes = [
   }
 ];
 
-
-
 @NgModule({
   declarations: [
     AppComponent
   ],
-  bootstrap: [AppComponent], imports: [BrowserModule,
+  bootstrap: [AppComponent],
+  imports: [BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     MatMenuModule,
@@ -53,7 +52,10 @@ const routes: Routes = [
     AuthModule.forRoot(),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-  ], providers: [provideHttpClient(withInterceptorsFromDi())]
+  ],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi())
+  ]
 })
 export class AppModule {
 }
