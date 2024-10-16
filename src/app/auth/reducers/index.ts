@@ -11,13 +11,10 @@ import { AuthActions } from '../action-types';
 export const authFeatureKey = 'auth';
 
 export interface AuthState {
-
   user: User
-
 }
 
 export interface State {
-
 }
 
 export const initialAuthState: AuthState = {
@@ -38,6 +35,12 @@ export const authReducer = createReducer(
       user: action.user,
 
     }
-  }
-  )
+  }),
+
+  on(AuthActions.logout, (state, action) => {
+    return {
+      user: undefined
+    }
+  })
+
 );
